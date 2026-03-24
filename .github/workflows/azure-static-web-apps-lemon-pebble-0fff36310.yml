@@ -17,6 +17,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,8 +32,8 @@ jobs:
         id: idtoken
         with:
           script: |
-            const core = require('@actions/core');
-            return await core.getIDToken();
+            const myCore = require('@actions/core');
+            return await myCore.getIDToken();
           result-encoding: string
 
       - name: Build and Deploy
